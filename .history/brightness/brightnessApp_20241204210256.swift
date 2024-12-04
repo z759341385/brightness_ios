@@ -11,7 +11,7 @@ import SwiftUI
 struct brightnessApp: App {
     var body: some Scene {
         WindowGroup {
-            CameraView()
+            ContentView()
         }
     }
 }

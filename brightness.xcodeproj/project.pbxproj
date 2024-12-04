@@ -14,6 +14,8 @@
 		F1DB2E482D008A8200EDD437 /* brightnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB2E472D008A8200EDD437 /* brightnessTests.swift */; };
 		F1DB2E522D008A8200EDD437 /* brightnessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB2E512D008A8200EDD437 /* brightnessUITests.swift */; };
 		F1DB2E542D008A8200EDD437 /* brightnessUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB2E532D008A8200EDD437 /* brightnessUITestsLaunchTests.swift */; };
+		F1DB2E632D008BD900EDD437 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB2E612D008BD900EDD437 /* CameraModel.swift */; };
+		F1DB2E652D00920E00EDD437 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB2E642D00920E00EDD437 /* CameraView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		F1DB2E4D2D008A8200EDD437 /* brightnessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = brightnessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1DB2E512D008A8200EDD437 /* brightnessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = brightnessUITests.swift; sourceTree = "<group>"; };
 		F1DB2E532D008A8200EDD437 /* brightnessUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = brightnessUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F1DB2E612D008BD900EDD437 /* CameraModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
+		F1DB2E642D00920E00EDD437 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 		F1DB2E342D008A8100EDD437 /* brightness */ = {
 			isa = PBXGroup;
 			children = (
+				F1DB2E642D00920E00EDD437 /* CameraView.swift */,
+				F1DB2E612D008BD900EDD437 /* CameraModel.swift */,
 				F1DB2E352D008A8100EDD437 /* brightnessApp.swift */,
 				F1DB2E372D008A8100EDD437 /* ContentView.swift */,
 				F1DB2E392D008A8200EDD437 /* Assets.xcassets */,
@@ -260,7 +266,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1DB2E382D008A8100EDD437 /* ContentView.swift in Sources */,
+				F1DB2E632D008BD900EDD437 /* CameraModel.swift in Sources */,
 				F1DB2E362D008A8100EDD437 /* brightnessApp.swift in Sources */,
+				F1DB2E652D00920E00EDD437 /* CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +432,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "use camera";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "add photo";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "use photo library";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -434,7 +445,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
@@ -462,6 +473,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "use camera";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "add photo";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "use photo library";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -472,7 +486,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
