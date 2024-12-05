@@ -11,6 +11,9 @@ struct CameraView: View {
         ZStack {
             CameraPreviewView(session: camera.session)
                 .ignoresSafeArea()
+                .onAppear {
+                    camera.checkPermissions()
+                }
             
             VStack {
                 Spacer()
@@ -18,7 +21,7 @@ struct CameraView: View {
                 Button(action: {
                     camera.capturePhoto { image, metadata in
                         self.exifData = metadata
-                        camera.savePhotoToLibrary(image: image) { success in
+                        camera.savePhotoToLibrary(image: image, metadata: metadata) { success in
                             showingSaveAlert = true
                         }
                     }
@@ -63,10 +66,6 @@ struct CameraView: View {
                 .background(Color.white)
             }
         }
-        .onAppear {
-            camera.checkPermissions()
-            camera.setupSession()
-        }
         .alert("照片已保存", isPresented: $showingSaveAlert) {
             Button("确定", role: .cancel) { }
         }
@@ -78,26 +77,26 @@ struct CameraPreviewView: UIViewRepresentable {
     let session: AVCaptureSession
     
     func makeUIView(context: Context) -> UIView {
-        let view = UIView(frame: CGRect.zero)
+        let view = UIView(frame: UIScreen.main.bounds)
         let previewLayer = AVCaptureVideoPreviewLayer(session: session)
         
-        // 设置预览层属性
         previewLayer.videoGravity = .resizeAspectFill
         previewLayer.frame = view.bounds
         previewLayer.connection?.videoOrientation = .portrait
         
-        // 添加预览层
         view.layer.addSublayer(previewLayer)
+        
+        DispatchQueue.main.async {
+            previewLayer.frame = view.bounds
+        }
         
         return view
     }
     
     func updateUIView(_ uiView: UIView, context: Context) {
         if let layer = uiView.layer.sublayers?.first as? AVCaptureVideoPreviewLayer {
-            // 更新预览层的frame以适应视图大小
-            DispatchQueue.main.async {
-                layer.frame = uiView.bounds
-            }
+            layer.frame = uiView.bounds
+            layer.connection?.videoOrientation = .portrait
         }
     }
 }
